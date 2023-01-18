@@ -16,5 +16,5 @@ export interface Prop {
 
 export interface TasksContext {
   data: Todo[]
-  setData: () => Todo[]
+  setData: any
 }
