@@ -20,7 +20,7 @@ const Form: React.FunctionComponent = () => {
   const handleOnChange: HandleFunction = (e) => {
     setDescription(e.target.value)
   }
-  
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     e.currentTarget.reset()
