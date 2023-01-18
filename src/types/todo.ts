@@ -4,7 +4,11 @@ export interface Todo {
   id: string
 }
 
-export type HandleFunction = (e: React.ChangeEvent<HTMLInputElement>) => void
+export type HandleFunction = (
+  e:
+    | React.ChangeEvent<HTMLInputElement>
+    | React.ChangeEvent<HTMLTextAreaElement>
+) => void
 
 export interface Props {
   children: JSX.Element | JSX.Element[]
