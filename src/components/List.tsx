@@ -1,35 +1,27 @@
-import { useContext, useEffect } from 'react'
-import { Todo } from '../types/todo'
-import { TaskContext } from '../context/tasksContext'
-import trash from '../../public/trash-bin-outline-svgrepo-com.svg'
+import { useContext, useEffect } from "react";
+import { Todo } from "../types/todo";
+import { TaskContext } from "../context/tasksContext";
+import trash from "../../public/trash-bin-outline-svgrepo-com.svg";
 
-let local: Todo[] = []
+let local: Todo[] = [];
 
 const List: React.FunctionComponent = () => {
-  const { data, setData } = useContext(TaskContext)
+  const { data, setData } = useContext(TaskContext);
 
-  local = JSON.parse(localStorage.getItem('tasks') || '[]')
-  local.length
-    ? local
-    : (local = [JSON.parse(localStorage.getItem('tasks') || '[]')])
+  local = JSON.parse(localStorage.getItem("tasks") || "[]");
+  local.length ? local : (local = [JSON.parse(localStorage.getItem("tasks") || "[]")]);
 
-    useEffect(() => {
-    local = JSON.parse(localStorage.getItem('tasks') || '[]')
-    local.length
-    ? local
-    : (local = [JSON.parse(localStorage.getItem('tasks') || '[]')])
-    local.map((item) => console.log(item.id))
-    console.log(data)
-    }, [data])
+  useEffect(() => {
+    local = JSON.parse(localStorage.getItem("tasks") || "[]");
+    local.length ? local : (local = [JSON.parse(localStorage.getItem("tasks") || "[]")]);
+  }, [data]);
 
   const handleClick = (item: string) => {
-    const index = local.findIndex(t => t.id === item)
-    setData(local.splice(index, 1))
-    localStorage.setItem('tasks', JSON.stringify(local))
-    console.log(index)
-    console.log(data)
-    local = JSON.parse(localStorage.getItem('tasks') || '[]')
-}
+    const index = local.findIndex((t) => t.id === item);
+    setData(local.splice(index, 1));
+    localStorage.setItem("tasks", JSON.stringify(local));
+    local = JSON.parse(localStorage.getItem("tasks") || "[]");
+  };
 
   return (
     <div
@@ -54,7 +46,7 @@ const List: React.FunctionComponent = () => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default List
+export default List;
